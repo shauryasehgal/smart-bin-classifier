@@ -1,0 +1,32 @@
+# Python cache files
+__pycache__/
+*.py[cod]
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Jupyter temporary files
+.ipynb_checkpoints/
+
+# Dataset and private evaluation data
+data/
+datasets/
+blind_test_labels*
+ground_truth*
+
+# Model weights and generated outputs
+*.pth
+*.pt
+*.onnx
+outputs/
+logs/
+
+# Environment variables and secrets
+.env
+.env.*
+
+# OS files
+.DS_Store
+Thumbs.db
