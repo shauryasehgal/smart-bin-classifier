@@ -24,15 +24,40 @@ st.write(
     "the detected quantities match the requested quantities."
 )
 
+
+train_dir = PROJECT_ROOT / "data" / "processed" / "train"
+validation_dir = PROJECT_ROOT / "data" / "processed" / "validation"
+blind_dir = PROJECT_ROOT / "data" / "processed" / "blind"
+
+train_validation_available = (
+    train_dir.is_dir()
+    and validation_dir.is_dir()
+    and (PROJECT_ROOT / "data" / "processed" / "train_labels.csv").is_file()
+    and (PROJECT_ROOT / "data" / "processed" / "validation_labels.csv").is_file()
+)
+
+blind_available = (
+    blind_dir.is_dir()
+    and any(
+        path.is_file() and path.suffix.lower() in {".jpg", ".jpeg", ".png"}
+        for path in blind_dir.iterdir()
+    )
+)
+
+available_modes = ["Image upload demo"]
+
+if train_validation_available:
+    available_modes.append("Train/validation demo")
+
+if blind_available:
+    available_modes.append("Blind evaluation")
+
 mode = st.radio(
     "Choose validation mode",
-    [
-        "Image upload demo",
-        "Train/validation demo",
-        "Blind evaluation",
-    ],
+    available_modes,
     horizontal=True,
 )
+
 
 catalogue = pd.read_csv(PROJECT_ROOT / "catalogue.csv")
 product_names = catalogue.set_index("asin")["product_name"].to_dict()
