@@ -259,9 +259,15 @@ The assignment requires at least ten meaningful commits. The final submission ar
 
 ## 14. Deployment Status
 
-**Hosted application URL:** To be added after deployment.
+**Hosted application:** https://smart-bin-classifier.streamlit.app/
 
-The application currently runs locally using Streamlit. A public deployment URL should only be added after a successful deployment and verification.
+The Smart Bin Classifier is deployed using Streamlit Community Cloud.
+
+The hosted application supports image uploads, product quantity inputs, model predictions, order validation, PASS/FAIL results, and validation logging.
+
+The Train/validation Demo and Blind Evaluation modes are available when running the application locally with the prepared dataset files. These modes are hidden in the hosted version because the dataset images and labels are not included in the public deployment repository.
+
+To run the full application locally, follow the setup instructions in this README and provide the required dataset files and trained model artifacts..
 
 ## 15. AI Tool Use and Assumptions
 
